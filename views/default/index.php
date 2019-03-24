@@ -40,6 +40,12 @@ SettingsAsset::register($this);
         <?= $form->field($model, 'description', ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description'))*/ ?>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
+        
+        <?= $form->field($model, 'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
+       
+        <?= $form->field($model, 'facebook')->textInput(['maxlength' => true])->hint($model->getDescription('facebook')) ?>
+        
+        <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
 
         <?= $form->field($model, 'timezone', ['options' => ['class' => 'form-group select-field']])
             ->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone')) ?>

@@ -22,6 +22,13 @@ class m151121_235015_i18n_art_settings_source extends SourceMessagesMigration
             'Date Format' => 1,
             'Time Format' => 1,
             'Page Size' => 1,
+            'Admin Phone' => 1,
+            'Admin Facebook' => 1,
+            'Admin Instagram' => 1,
+            'Phone Mask' => 1,
+            'Date Mask' => 1,
+            'Time Mask' => 1,
+            'Date & Time Mask' => 1,
         ];
     }
 }

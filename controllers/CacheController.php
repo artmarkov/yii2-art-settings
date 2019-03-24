@@ -35,9 +35,9 @@ class CacheController extends BaseController
         }
 
         if (Yii::$app->cache->flush()) {
-            Yii::$app->session->setFlash('crudMessage', 'Cache has been flushed.');
+            Yii::$app->session->setFlash('crudMessage', Yii::t('art', 'Cache has been flushed.'));
         } else {
-            Yii::$app->session->setFlash('crudMessage', 'Failed to flush cache.');
+            Yii::$app->session->setFlash('crudMessage', Yii::t('art', 'Failed to flush cache.'));
         }
 
         return Yii::$app->getResponse()->redirect(Yii::$app->getRequest()->referrer);
