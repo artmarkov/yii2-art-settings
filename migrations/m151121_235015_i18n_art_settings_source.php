@@ -29,6 +29,7 @@ class m151121_235015_i18n_art_settings_source extends SourceMessagesMigration
             'Date Mask' => 1,
             'Time Mask' => 1,
             'Date & Time Mask' => 1,
+            'Your settings have been saved.' => 1,
         ];
     }
 }
