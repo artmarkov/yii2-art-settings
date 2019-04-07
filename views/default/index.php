@@ -32,36 +32,41 @@ SettingsAsset::register($this);
             ],
         ])
         ?>
+        <div class="panel panel-default">
+            <div class="panel-heading"><?= Html::encode($this->title) ?></div>
+                <div class="panel-body">
 
 
+                    <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'description', ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description'))*/ ?>
 
-        <?= $form->field($model, 'description', ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description'))*/ ?>
+                    <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
 
-        <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
-        
-        <?= $form->field($model, 'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
-       
-        <?= $form->field($model, 'facebook')->textInput(['maxlength' => true])->hint($model->getDescription('facebook')) ?>
-        
-        <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
+                    <?= $form->field($model, 'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
 
-        <?= $form->field($model, 'timezone', ['options' => ['class' => 'form-group select-field']])
-            ->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone')) ?>
+                    <?= $form->field($model, 'facebook')->textInput(['maxlength' => true])->hint($model->getDescription('facebook')) ?>
 
-        <?= $form->field($model, 'dateformat', ['options' => ['class' => 'form-group select-field']])
-            ->dropDownList(GeneralSettings::getDateFormats())->hint($model->getDescription('dateformat')) ?>
+                    <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
 
-        <?= $form->field($model, 'timeformat', ['options' => ['class' => 'form-group select-field']])
-            ->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat')) ?>
+                    <?= $form->field($model, 'timezone', ['options' => ['class' => 'form-group select-field']])
+                        ->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone')) ?>
 
-        <div class="form-group">
-            <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
-        </div>
+                    <?= $form->field($model, 'dateformat', ['options' => ['class' => 'form-group select-field']])
+                        ->dropDownList(GeneralSettings::getDateFormats())->hint($model->getDescription('dateformat')) ?>
+
+                    <?= $form->field($model, 'timeformat', ['options' => ['class' => 'form-group select-field']])
+                        ->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat')) ?>
+
+                    <div class="form-group">
+                        <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
+                    </div>
 
         <?php ActiveForm::end(); ?>
 
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

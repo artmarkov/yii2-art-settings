@@ -86,7 +86,7 @@ class GeneralSettings extends BaseSettingsModel
 
     public static function getTimeFormats()
     {
-        $timestamp = strtotime('2015-01-01 09:45:59');
+        $timestamp = strtotime('2019-01-01 09:45:59');
         return [
             'h:mm a' => Yii::$app->formatter->asTime($timestamp, "h:mm a"),
             'hh:mm a' => Yii::$app->formatter->asTime($timestamp, "hh:mm a"),
