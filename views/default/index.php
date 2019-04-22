@@ -25,49 +25,59 @@ SettingsAsset::register($this);
     <div class="setting-form">
         <?php
         $form = ActiveForm::begin([
-            'id' => 'setting-form',
-            'validateOnBlur' => false,
-            'fieldConfig' => [
-                'template' => "<div class=\"settings-group\"><div class=\"settings-label\">{label}</div>\n<div class=\"settings-field\">{input}\n{hint}\n{error}</div></div>"
-            ],
-        ])
+                    'id' => 'setting-form',
+                    'validateOnBlur' => false,
+                    'fieldConfig' => [
+                        'template' => "<div class=\"settings-group\"><div class=\"settings-label\">{label}</div>\n<div class=\"settings-field\">{input}\n{hint}\n{error}</div></div>"
+                    ],
+                ])
         ?>
-        <div class="panel panel-default">
-            <div class="panel-heading"><?= Html::encode($this->title) ?></div>
-                <div class="panel-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                    <div class="panel-body">
 
+                        <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'description', ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description')) */ ?>
 
-                    <?= $form->field($model, 'description', ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description'))*/ ?>
+                        <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
 
-                    <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
+                        <?= $form->field($model, 'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
 
-                    <?= $form->field($model, 'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
+                        <?= $form->field($model, 'facebook')->textInput(['maxlength' => true])->hint($model->getDescription('facebook')) ?>
 
-                    <?= $form->field($model, 'facebook')->textInput(['maxlength' => true])->hint($model->getDescription('facebook')) ?>
+                        <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
 
-                    <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
+                    <div class="panel-body">
+                        <?= $form->field($model, 'timezone', ['options' => ['class' => 'form-group select-field']])
+                                ->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone'))
+                        ?>
 
-                    <?= $form->field($model, 'timezone', ['options' => ['class' => 'form-group select-field']])
-                        ->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone')) ?>
+                        <?= $form->field($model, 'dateformat', ['options' => ['class' => 'form-group select-field']])
+                                ->dropDownList(GeneralSettings::getDateFormats())->hint($model->getDescription('dateformat'))
+                        ?>
 
-                    <?= $form->field($model, 'dateformat', ['options' => ['class' => 'form-group select-field']])
-                        ->dropDownList(GeneralSettings::getDateFormats())->hint($model->getDescription('dateformat')) ?>
+                        <?= $form->field($model, 'timeformat', ['options' => ['class' => 'form-group select-field']])
+                                ->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat'))
+                        ?>
 
-                    <?= $form->field($model, 'timeformat', ['options' => ['class' => 'form-group select-field']])
-                        ->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat')) ?>
-
-                    <div class="form-group">
-                        <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
+                    </div>
+                    <div class="panel-footer">
+                    <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
                     </div>
 
-        <?php ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
 
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 

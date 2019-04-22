@@ -40,12 +40,12 @@ SettingsAsset::register($this);
                     <?= $form->field($model, 'time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('time_mask')) ?>
                     <?= $form->field($model, 'date_time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('date_time_mask')) ?>
 
-        <div class="form-group">
-            <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
-        </div>
+                </div>
+                <div class="panel-footer">
+                    <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
+                </div>
 
         <?php ActiveForm::end(); ?>
-                </div>
             </div>
         </div>
     </div>
