@@ -46,7 +46,7 @@ abstract class SettingsBaseController extends BaseController
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->save();
-            Yii::$app->session->setFlash('crudMessage', Yii::t('art/setting', 'Your settings have been saved.'));
+            Yii::$app->session->setFlash('crudMessage', Yii::t('art/settings', 'Your settings have been saved.'));
             return $this->redirect($this->enableOnlyActions);
         }
 
