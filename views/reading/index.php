@@ -30,24 +30,24 @@ SettingsAsset::register($this);
             ],
         ])
         ?>
-        <div class="panel panel-default">
-            <div class="panel-heading"><?= Html::encode($this->title) ?></div>
-                <div class="panel-body">
-                    
-                    <?= $form->field($model, 'page_size')->textInput(['maxlength' => true])->hint($model->getDescription('page_size')) ?>
-                    <?= $form->field($model, 'phone_mask')->textInput(['maxlength' => true])->hint($model->getDescription('phone_mask')) ?>
-                    <?= $form->field($model, 'date_mask')->textInput(['maxlength' => true])->hint($model->getDescription('date_mask')) ?>      
-                    <?= $form->field($model, 'time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('time_mask')) ?>
-                    <?= $form->field($model, 'date_time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('date_time_mask')) ?>
+        <div class="panel panel-default">           
+            <div class="panel-body">
 
-                </div>
-                <div class="panel-footer">
-                    <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
-                </div>
+                <?= $form->field($model, 'page_size')->textInput(['maxlength' => true])->hint($model->getDescription('page_size')) ?>
+                <?= $form->field($model, 'phone_mask')->textInput(['maxlength' => true])->hint($model->getDescription('phone_mask')) ?>
+                <?= $form->field($model, 'date_mask')->textInput(['maxlength' => true])->hint($model->getDescription('date_mask')) ?>      
+                <?= $form->field($model, 'time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('time_mask')) ?>
+                <?= $form->field($model, 'date_time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('date_time_mask')) ?>
+
+            </div>
+            <div class="panel-body">
+                    <div class="form-group">
+                        <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
+                    </div>
+            </div>
+        </div>           
 
         <?php ActiveForm::end(); ?>
-            </div>
-        </div>
     </div>
 </div>
 

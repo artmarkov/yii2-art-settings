@@ -33,7 +33,7 @@ SettingsAsset::register($this);
                 ])
         ?>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-body">
 
@@ -50,9 +50,14 @@ SettingsAsset::register($this);
                         <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
                         
                     </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="panel panel-default">
 
                     <div class="panel-body">
@@ -67,10 +72,6 @@ SettingsAsset::register($this);
                         <?= $form->field($model, 'timeformat', ['options' => ['class' => 'form-group select-field']])
                                 ->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat'))
                         ?>
-
-                    </div>
-                    <div class="panel-footer">
-                    <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
                     </div>
 
             <?php ActiveForm::end(); ?>
