@@ -40,7 +40,7 @@ SettingsAsset::register($this);
                 <?= $form->field($model, 'date_time_mask')->textInput(['maxlength' => true])->hint($model->getDescription('date_time_mask')) ?>
 
             </div>
-            <div class="panel-body">
+            <div class="panel-footer">
                     <div class="form-group">
                         <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
                     </div>

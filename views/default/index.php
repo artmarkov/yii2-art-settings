@@ -50,7 +50,7 @@ SettingsAsset::register($this);
                         <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
                         
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-footer">
                         <div class="form-group">
                             <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
                         </div>
