@@ -11,27 +11,41 @@ use Yii;
  *
  * @author Taras Makitra <makitrataras@gmail.com>
  */
-class CacheController extends BaseController
-{
+class CacheController extends BaseController {
+
     /**
      * @inheritdoc
      */
     public $enableOnlyActions = ['flush'];
 
-    public function actionFlush()
-    {
+    public function actionFlush() {
+        
         $frontendAssetPath = Yii::getAlias('@frontend') . '/web/assets/';
         $backendAssetPath = Yii::getAlias('@backend') . '/web/assets/';
 
+        $frontendRuntimePath = Yii::getAlias('@frontend') . '/runtime/cache/';
+        $backendRuntimePath = Yii::getAlias('@backend') . '/runtime/cache/';
+
         ArtHelper::recursiveDelete($frontendAssetPath);
         ArtHelper::recursiveDelete($backendAssetPath);
-        
+
+        ArtHelper::recursiveDelete($frontendRuntimePath);
+        ArtHelper::recursiveDelete($backendRuntimePath);
+
         if (!is_dir($frontendAssetPath)) {
             @mkdir($frontendAssetPath);
         }
-        
+
         if (!is_dir($backendAssetPath)) {
             @mkdir($backendAssetPath);
+        }
+
+        if (!is_dir($frontendRuntimePath)) {
+            @mkdir($frontendRuntimePath);
+        }
+
+        if (!is_dir($backendRuntimePath)) {
+            @mkdir($backendRuntimePath);
         }
 
         if (Yii::$app->cache->flush()) {
@@ -42,4 +56,5 @@ class CacheController extends BaseController
 
         return Yii::$app->getResponse()->redirect(Yii::$app->getRequest()->referrer);
     }
+
 }
