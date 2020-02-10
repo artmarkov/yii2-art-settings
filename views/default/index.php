@@ -25,17 +25,18 @@ SettingsAsset::register($this);
     <div class="setting-form">
         <?php
         $form = ActiveForm::begin([
-                    'id' => 'setting-form',
-                    'validateOnBlur' => false,
-                    'fieldConfig' => [
-                        'template' => "<div class=\"settings-group\"><div class=\"settings-label\">{label}</div>\n<div class=\"settings-field\">{input}\n{hint}\n{error}</div></div>"
-                    ],
-                ])
+            'id' => 'setting-form',
+            'validateOnBlur' => false,
+            'fieldConfig' => [
+                'template' => "<div class=\"settings-group\"><div class=\"settings-label\">{label}</div>\n<div class=\"settings-field\">{input}\n{hint}\n{error}</div></div>"
+            ],
+        ])
         ?>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="panel panel-default">
-                    <div class="panel-body">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
 
                         <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
 
@@ -48,37 +49,24 @@ SettingsAsset::register($this);
                         <?= $form->field($model, 'facebook')->textInput(['maxlength' => true])->hint($model->getDescription('facebook')) ?>
 
                         <?= $form->field($model, 'instagram')->textInput(['maxlength' => true])->hint($model->getDescription('instagram')) ?>
-                        
-                    </div>
-                    <div class="panel-footer">
-                        <div class="form-group">
-                            <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
-                        </div>
+
+                        <?= $form->field($model, 'timezone')->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone')) ?>
+
+                        <?= $form->field($model, 'dateformat')->dropDownList(GeneralSettings::getDateFormats())->hint($model->getDescription('dateformat')) ?>
+
+                        <?= $form->field($model, 'timeformat')->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat')) ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-
-                    <div class="panel-body">
-                        <?= $form->field($model, 'timezone', ['options' => ['class' => 'form-group select-field']])
-                                ->dropDownList(GeneralSettings::getTimezones())->hint($model->getDescription('timezone'))
-                        ?>
-
-                        <?= $form->field($model, 'dateformat', ['options' => ['class' => 'form-group select-field']])
-                                ->dropDownList(GeneralSettings::getDateFormats())->hint($model->getDescription('dateformat'))
-                        ?>
-
-                        <?= $form->field($model, 'timeformat', ['options' => ['class' => 'form-group select-field']])
-                                ->dropDownList(GeneralSettings::getTimeFormats())->hint($model->getDescription('timeformat'))
-                        ?>
-                    </div>
-
-            <?php ActiveForm::end(); ?>
-
+            <div class="panel-footer">
+                <div class="form-group">
+                    <?= Html::submitButton(Yii::t('art', 'Save'), ['class' => 'btn btn-primary']) ?>
                 </div>
             </div>
         </div>
     </div>
 
+    <?php ActiveForm::end(); ?>
+
+</div>
 
